@@ -100,7 +100,7 @@ sudo vi .env
 ```
 ```
 MYSQL_IP=mysqlserverhost MYSQL_USER=username MYSQL_PASS=client-secrete-password MYSQL_DBNAME=toolingdb
-```
+
 
 Let's run the tooling app using a dockerfile
 
@@ -119,8 +119,11 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY apache-config.conf /etc/apache2/sites-available/000-default.conf
 COPY start-apache /usr/local/bin
 RUN a2enmod rewrite
+```
 
 # Copy application source
+
+```
 COPY html /var/www
 RUN chown -R www-data:www-data /var/www
 
